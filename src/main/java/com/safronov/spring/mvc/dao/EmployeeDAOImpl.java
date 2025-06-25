@@ -19,4 +19,9 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         Session session = sessionFactory.getCurrentSession();
         return session.createQuery("from Employee", Employee.class).getResultList();
     }
+
+    @Override
+    public void saveEmployee(Employee employee) {
+        sessionFactory.getCurrentSession().save(employee);
+    }
 }
